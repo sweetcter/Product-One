@@ -130,6 +130,13 @@ if (isset($_SESSION['username']) && ($_SESSION['username']['role'] == 1)) {
             include "./user/list.php";
             break;
             // SỬA TÀI KHOẢN
+        case 'activetk':
+            if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+                enable_taikhoan($_GET['id']);
+            }
+            $listtaikhoan = loadall_taikhoan();
+            include "./user/list.php";
+            break;
         case 'suatk':
             if (isset($_GET['id']) && ($_GET['id'] > 0)) {
                 $tk = loadone_taikhoan($_GET['id']);

@@ -6,7 +6,7 @@
           <?php
        
           ?>
-          <form action="./du_an1/view/progess-signup.php" method="POST" id="register-form">
+          <form action="./view/progess-signup.php" method="POST" id="register-form">
             <div class="form-group">
               <label for="full_name">Full Name*</label>
               <input type="text" name="full_name" id="full_name" plac eholder="Full name" required />
