@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th9 05, 2023 lúc 10:08 AM
--- Phiên bản máy phục vụ: 10.4.24-MariaDB
--- Phiên bản PHP: 8.1.6
+-- Host: 127.0.0.1
+-- Generation Time: Apr 13, 2025 at 09:59 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,23 +18,23 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Cơ sở dữ liệu: `shopquanao`
+-- Database: `shopquanao`
 --
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `banner`
+-- Table structure for table `banner`
 --
 
 CREATE TABLE `banner` (
   `banner_id` int(11) NOT NULL,
   `banner_name` varchar(50) NOT NULL,
   `banner_image` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `banner`
+-- Dumping data for table `banner`
 --
 
 INSERT INTO `banner` (`banner_id`, `banner_name`, `banner_image`) VALUES
@@ -45,16 +45,16 @@ INSERT INTO `banner` (`banner_id`, `banner_name`, `banner_image`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `categories`
+-- Table structure for table `categories`
 --
 
 CREATE TABLE `categories` (
   `id_category` int(11) NOT NULL,
   `name_category` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `categories`
+-- Dumping data for table `categories`
 --
 
 INSERT INTO `categories` (`id_category`, `name_category`) VALUES
@@ -64,7 +64,7 @@ INSERT INTO `categories` (`id_category`, `name_category`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `color_name`
+-- Table structure for table `color_name`
 --
 
 CREATE TABLE `color_name` (
@@ -72,10 +72,10 @@ CREATE TABLE `color_name` (
   `color_name` varchar(255) NOT NULL,
   `color_image` varchar(255) NOT NULL,
   `color_type_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `color_name`
+-- Dumping data for table `color_name`
 --
 
 INSERT INTO `color_name` (`color_name_id`, `color_name`, `color_image`, `color_type_id`) VALUES
@@ -134,16 +134,16 @@ INSERT INTO `color_name` (`color_name_id`, `color_name`, `color_image`, `color_t
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `color_type`
+-- Table structure for table `color_type`
 --
 
 CREATE TABLE `color_type` (
   `color_type_id` int(11) NOT NULL,
   `color_type_name` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `color_type`
+-- Dumping data for table `color_type`
 --
 
 INSERT INTO `color_type` (`color_type_id`, `color_type_name`) VALUES
@@ -166,7 +166,7 @@ INSERT INTO `color_type` (`color_type_id`, `color_type_name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `comment`
+-- Table structure for table `comment`
 --
 
 CREATE TABLE `comment` (
@@ -175,20 +175,12 @@ CREATE TABLE `comment` (
   `id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
   `comment_time` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Đang đổ dữ liệu cho bảng `comment`
---
-
-INSERT INTO `comment` (`comment_id`, `content`, `id`, `product_id`, `comment_time`) VALUES
-(43, 'Sản phẩm này thật sự tuyệt vời!', 1, 75, '2023-09-03'),
-(44, 'Tôi rất hài lòng với chất lượng của sản phẩm này.', 1, 75, '2023-09-03');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `images`
+-- Table structure for table `images`
 --
 
 CREATE TABLE `images` (
@@ -196,10 +188,10 @@ CREATE TABLE `images` (
   `image_url` varchar(255) NOT NULL,
   `color_name_id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `images`
+-- Dumping data for table `images`
 --
 
 INSERT INTO `images` (`image_id`, `image_url`, `color_name_id`, `product_id`) VALUES
@@ -437,7 +429,7 @@ INSERT INTO `images` (`image_id`, `image_url`, `color_name_id`, `product_id`) VA
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `orders`
+-- Table structure for table `orders`
 --
 
 CREATE TABLE `orders` (
@@ -454,20 +446,20 @@ CREATE TABLE `orders` (
   `pay_methods` int(2) NOT NULL,
   `total_price` float NOT NULL,
   `delivery_charges` float NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `orders`
+-- Dumping data for table `orders`
 --
 
 INSERT INTO `orders` (`order_id`, `customer_id`, `receiver_name`, `receiver_address`, `receiver_number_phone`, `receiver_email`, `receiver_note`, `status_id`, `created_at`, `completed_at`, `pay_methods`, `total_price`, `delivery_charges`) VALUES
-(110, 1, 'Nguyễn Tiến Đạt', 'Hồng hà - Đan Phượng - Hà Nội', '0964863742', 'datntph24947@fpt.edu.vn', '', 1, '2023-09-05 05:02:43', '0000-00-00 00:00:00', 1, 489020, 0),
-(123, 1, 'Nguyễn Tiến Đạt', 'Hồng hà - Đan Phượng - Hà Nội', '0964863742', 'datntph24947@fpt.edu.vn', '', 1, '2023-09-05 07:56:39', '0000-00-00 00:00:00', 1, 383000, 0);
+(141, 5, 'admin', 'hà nội', '0987772223', 'admin@gmail.com', '', 1, '2025-04-13 19:42:34', '0000-00-00 00:00:00', 1, 520000, 0),
+(142, 5, 'admin', 'hà nội', '0987772223', 'admin@gmail.com', '', 1, '2025-04-13 19:56:55', '0000-00-00 00:00:00', 1, 638000, 0);
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `order_product`
+-- Table structure for table `order_product`
 --
 
 CREATE TABLE `order_product` (
@@ -477,20 +469,20 @@ CREATE TABLE `order_product` (
   `color_name_id` int(11) NOT NULL,
   `size_id` int(11) NOT NULL,
   `quantity` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `order_product`
+-- Dumping data for table `order_product`
 --
 
 INSERT INTO `order_product` (`order_product_id`, `order_id`, `product_id`, `color_name_id`, `size_id`, `quantity`) VALUES
-(102, 110, 70, 114, 15, 1),
-(115, 123, 75, 119, 17, 1);
+(128, 141, 117, 183, 18, 1),
+(129, 142, 76, 122, 18, 1);
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `products`
+-- Table structure for table `products`
 --
 
 CREATE TABLE `products` (
@@ -507,17 +499,17 @@ CREATE TABLE `products` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `category_id` int(11) NOT NULL,
   `product_status` int(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `products`
+-- Dumping data for table `products`
 --
 
 INSERT INTO `products` (`product_id`, `product_name`, `main_image_url`, `hover_main_image_url`, `product_price`, `discount`, `gender`, `product_desc`, `product_code`, `view`, `created_at`, `category_id`, `product_status`) VALUES
 (70, 'Áo Sơ Mi Nữ Sát Nách Cổ Bèo Túi Thêu Họa Tiết Form', '/asset/images/64e455624272910s23shsw031_star_white-ao-so-mi-nu_1__2.jpg', '/asset/images/64e455624293410s23shsw031_star_white-ao-so-mi-nu_3__2.jpg', 499000, 2, 1, 'THÔNG TIN CHI TIẾT ÁO SƠ MI NỮ SÁT NÁCH CỔ BÈO TÚI THÊU HỌA TIẾT FORM REGULAR - 10S23SHSW031\r\nÁo Sơ Mi Nữ Sát Nách Cổ Bèo Túi Thêu Họa Tiết Form Regular - 10S23SHSW031 là một chiếc áo sơ mi cách điệu với những đặc điểm nổi bật như:\r\n\r\nDệt từ 100% sợi cây lanh, sờ nhám tay, an toàn cho da.\r\nCó khả năng thấm hút và thoáng mát bậc nhất và chịu nhiệt tốt\r\nForm áo suông, không ôm có thể phù hợp với mọi vóc dáng\r\nThân sau có ly ngay đô áo giúp giữ độ rộng thoải mái nhưng vẫn trông rất gọn gàng\r\nMang thiết kế không tay sành điệu, cá tính kết hợp cổ bèo thêm phần nữ tính\r\nSử dụng trong mọi hoàn cảnh nơi công sở đến chốn hẹn hò.', '10S23SHSW031', 41, '2023-08-22 06:27:46', 2, 1),
-(75, 'Áo Thun Nam Tay Ngắn Cổ Tròn Họa Tiết In Form Regu', '/asset/images/64ec6a34688d910s23tss016-angel-falls-_1__1.jpg', '/asset/images/64ec6a3468a6a10s23tss016-angel-falls-_2__1.jpg', 383000, 0, 0, 'chất liệu đẹp', '10S23TSS016', 109, '2023-08-28 09:34:44', 1, 2),
-(76, 'Áo Sơ Mi Nam Tay Dài Flannel Túi Đắp Kẻ Caro Form ', '/asset/images/64ec71aa40ff7ao-so-mi-15-10f23shl030-green-_1__1.jpg', '/asset/images/64ec71aa410f7ao-so-mi-15-10f23shl030-green-_2__1.jpg', 638000, 0, 0, 'chất lượng', '10F23SHL030', 2, '2023-08-28 10:06:34', 1, 1),
-(78, 'Áo Polo Nam Interlock Pique Trơn Phối Cổ Tay Form ', '/asset/images/64ec9f1fc267810s23pol041-pumpkin-spice-ao-polo-nam_1__3.jpg', '/asset/images/64ec9f1fc273510s23pol041-pumpkin-spice-ao-polo-nam_2__3.jpg', 490000, 0, 0, 'chất lượng', '10S23POL041', 4, '2023-08-28 13:18:01', 1, 2),
+(75, 'Áo Thun Nam Tay Ngắn Cổ Tròn Họa Tiết In Form Regu', '/asset/images/64ec6a34688d910s23tss016-angel-falls-_1__1.jpg', '/asset/images/64ec6a3468a6a10s23tss016-angel-falls-_2__1.jpg', 383000, 0, 0, 'chất liệu đẹp', '10S23TSS016', 115, '2023-08-28 09:34:44', 1, 2),
+(76, 'Áo Sơ Mi Nam Tay Dài Flannel Túi Đắp Kẻ Caro Form ', '/asset/images/64ec71aa40ff7ao-so-mi-15-10f23shl030-green-_1__1.jpg', '/asset/images/64ec71aa410f7ao-so-mi-15-10f23shl030-green-_2__1.jpg', 638000, 0, 0, 'chất lượng', '10F23SHL030', 14, '2023-08-28 10:06:34', 1, 1),
+(78, 'Áo Polo Nam Interlock Pique Trơn Phối Cổ Tay Form ', '/asset/images/64ec9f1fc267810s23pol041-pumpkin-spice-ao-polo-nam_1__3.jpg', '/asset/images/64ec9f1fc273510s23pol041-pumpkin-spice-ao-polo-nam_2__3.jpg', 490000, 0, 0, 'chất lượng', '10S23POL041', 7, '2023-08-28 13:18:01', 1, 2),
 (79, 'Áo Polo Nam Tay Ngắn Phối Sọc Form Fitted', '/asset/images/64eca0de1465b10s23pol060_blue_fog-ao-polo-nam_5__1_2.jpg', '/asset/images/64eca0de1473d10s23pol060_blue_fog-ao-polo-nam_7__1_2.jpg', 471000, 6, 0, 'dep', '10S23POL060', 3, '2023-08-28 13:27:58', 1, 2),
 (80, 'Áo Sơ Mi Nam Tay Ngắn Cuban Shirt Kẻ Sọc Form Regu', '/asset/images/64eca2583360810s23shs017_almond_milk_1__2.jpg', '/asset/images/64eca2583372910s23shs017_almond_milk_2__2.jpg', 490000, 3, 0, 'đẹp', '10S23SHS017', 4, '2023-08-28 13:34:16', 1, 2),
 (81, 'Quần Jean Nam Ống Rộng Trơn Form Wide Leg', '/asset/images/64eca40d800fd10s22dpa015_navy-quan-jean-nam_1__2.jpg', '/asset/images/64eca40d801da10s22dpa015_navy-quan-jean-nam_2__2.jpg', 511000, 6, 0, 'đẹp', '10S22DPA015', 13, '2023-08-28 13:41:33', 1, 1),
@@ -528,7 +520,7 @@ INSERT INTO `products` (`product_id`, `product_name`, `main_image_url`, `hover_m
 (89, 'Áo Hoodie Nam Tay Dài In Hình Form Regular', '/asset/images/64ecaebaac56310f21hod005_3__1_2.jpg', '/asset/images/64ecaebaac68910f21hod005_2__3_1.jpg', 650000, 12, 0, 'đẹp', '10F21HOD005', 1, '2023-08-28 14:27:06', 1, 1),
 (90, 'Áo Thun Nam Tay Ngắn Vải Coffee In Chữ Form Loose', '/asset/images/64ecb4988a06d10s23tss062-ao-thun_2__7.jpg', '/asset/images/64ecb4988a17310s23tss062-ao-thun_3__7.jpg', 360000, 5, 0, 'đẹp', '10S23TSS062', 1, '2023-08-28 14:52:08', 1, 2),
 (92, 'Áo Sơ Mi Nữ Tay Dài Trơn Xếp Ly Form Regular', '/asset/images/64ecd5fa8cd7764d48ae42ac2710s22shlw004_beige-ao-so-mi-nu_1__1.jpg', '/asset/images/64ecd5fa8ce7864d48ae42ad2d10s22shlw004_beige-ao-so-mi-nu_2__1_1.jpg', 450000, 2, 1, 'dep', '10S22SHLW004', 7, '2023-08-28 17:14:34', 2, 2),
-(97, 'Áo Sweater Nữ Vải Nỉ Tay Dài Trơn Form Regular', '/asset/images/64ef6f078be3e10f22swew001_chalk_pink_4__2.jpg', '/asset/images/64ef6f078bf4a10f22swew001_chalk_pink_3__2_1.jpg', 390000, 2, 1, 'đẹp', '10F22SWEW001', 4, '2023-08-30 16:32:07', 2, 2),
+(97, 'Áo Sweater Nữ Vải Nỉ Tay Dài Trơn Form Regular', '/asset/images/64ef6f078be3e10f22swew001_chalk_pink_4__2.jpg', '/asset/images/64ef6f078bf4a10f22swew001_chalk_pink_3__2_1.jpg', 390000, 2, 1, 'đẹp', '10F22SWEW001', 5, '2023-08-30 16:32:07', 2, 2),
 (98, 'Áo Kiểu Nữ Tay Dài Nhún Tay Form Loose', '/asset/images/64f45253723b9ao-so-mi-nu-10f22shlw003_black_5__4.jpg', '/asset/images/64f45253724b0ao-so-mi-nu-10f22shlw003_black_6__4.jpg', 549000, 60, 1, 'đẹp', '10F22SHLW003', 3, '2023-09-03 09:30:59', 2, 2),
 (100, 'Áo Hoodie Nữ Tay Dài Có Mũ Nhãn Trang Trí', '/asset/images/64f454d126dca10f22hodw005_pink_8__3.jpg', '/asset/images/64f454d126eb510f22hodw005_pink_10__3.jpg', 479000, 2, 1, 'đẹp', '10F22HODW005', 2, '2023-09-03 09:41:37', 2, 2),
 (102, 'Áo Blazer Nữ Tay Dài Linen Xẻ Sau Form Fitted', '/asset/images/64f457777f9a910s21vesw001-brow.2_1_1.jpg', '/asset/images/64f457777fa9010s21vesw001-brow.4_1_1.jpg', 950000, 74, 1, 'đẹp', '10S21VESW001', 2, '2023-09-03 09:52:55', 2, 1),
@@ -542,24 +534,24 @@ INSERT INTO `products` (`product_id`, `product_name`, `main_image_url`, `hover_m
 (114, 'Áo Sơ Mi Nữ Tay Dài Trơn Thắt Eo Form Fitted', '/asset/images/64f491a64d2d610s21shlw016-whte-1_2.jpg', '/asset/images/64f491a64d41010s21shlw016-whte-5_2.jpg', 511000, 0, 1, 'đẹp', '10S21SHLW016', 0, '2023-09-03 14:01:10', 2, 1),
 (115, 'Áo Len Nữ Dệt Kim Tay Ngắn Trơn Form Slim', '/asset/images/64f4927bc44c410f21kniw029-grey-1_1.jpg', '/asset/images/64f4927bc45ff10f21kniw029-grey-5_1.jpg', 413000, 0, 1, 'đẹp', '10F21KNIW029', 1, '2023-09-03 14:04:43', 2, 1),
 (116, 'Chân Váy Mini Nữ Phối Bèo Form Fitted', '/asset/images/64f49372d58d010s22skiw006-brown_3__2.jpg', '/asset/images/64f49372d59e110s22skiw006-brown_4__2.jpg', 413000, 0, 1, 'đẹp', '10S22SKIW006', 2, '2023-09-03 14:08:50', 2, 1),
-(117, 'Áo Polo Nam Interlock Pique Phối Bo Và Tay Form Re', '/asset/images/64f4960431bb810s23pol037_rain_forest-ao-polo-nam_17_1__1.jpg', '/asset/images/64f4960431c7e10s23pol037_rain_forest-ao-polo-nam_17_2__1.jpg', 520000, 0, 0, 'đẹp', '10S23POL037', 3, '2023-09-03 14:19:48', 1, 1),
+(117, 'Áo Polo Nam Interlock Pique Phối Bo Và Tay Form Re', '/asset/images/64f4960431bb810s23pol037_rain_forest-ao-polo-nam_17_1__1.jpg', '/asset/images/64f4960431c7e10s23pol037_rain_forest-ao-polo-nam_17_2__1.jpg', 520000, 0, 0, 'đẹp', '10S23POL037', 4, '2023-09-03 14:19:48', 1, 1),
 (119, 'Quần Short Thể Thao In Chuyển Nhiệt Form Regular', '/asset/images/64f498a46e65b10s23psha001_navy_77_2__1.jpg', '/asset/images/64f498a46e75b10s23psha001_navy_77_1__1.jpg', 216000, 0, 0, 'đẹp', '10S23PSHA001', 0, '2023-09-03 14:31:00', 1, 1),
 (121, 'Chân Váy Chữ A Jean Nữ Họa Tiết In Laser Form A Li', '/asset/images/64f6cb56ed33cchan-vay-jean-nu-10s23dskw001_8__2.jpg', '/asset/images/64f6cb56ed4bcchan-vay-jean-nu-10s23dskw001_7__2.jpg', 479000, 2, 1, 'đẹp', '10S23DSKW001', 0, '2023-09-05 06:31:50', 2, 1);
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `product_color`
+-- Table structure for table `product_color`
 --
 
 CREATE TABLE `product_color` (
   `product_color_id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
   `color_name_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `product_color`
+-- Dumping data for table `product_color`
 --
 
 INSERT INTO `product_color` (`product_color_id`, `product_id`, `color_name_id`) VALUES
@@ -611,17 +603,17 @@ INSERT INTO `product_color` (`product_color_id`, `product_id`, `color_name_id`) 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `product_size`
+-- Table structure for table `product_size`
 --
 
 CREATE TABLE `product_size` (
   `product_size_id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
   `size_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `product_size`
+-- Dumping data for table `product_size`
 --
 
 INSERT INTO `product_size` (`product_size_id`, `product_id`, `size_id`) VALUES
@@ -720,7 +712,7 @@ INSERT INTO `product_size` (`product_size_id`, `product_id`, `size_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `purchased_orders`
+-- Table structure for table `purchased_orders`
 --
 
 CREATE TABLE `purchased_orders` (
@@ -735,10 +727,10 @@ CREATE TABLE `purchased_orders` (
   `customer_email` varchar(255) NOT NULL,
   `customer_phone_number` varchar(100) NOT NULL,
   `total_price` float NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `purchased_orders`
+-- Dumping data for table `purchased_orders`
 --
 
 INSERT INTO `purchased_orders` (`purchased_order_id`, `customer_id`, `product_id`, `size_id`, `color_name_id`, `quantity`, `created_at`, `completed_at`, `customer_email`, `customer_phone_number`, `total_price`) VALUES
@@ -749,7 +741,7 @@ INSERT INTO `purchased_orders` (`purchased_order_id`, `customer_id`, `product_id
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `quantities`
+-- Table structure for table `quantities`
 --
 
 CREATE TABLE `quantities` (
@@ -758,17 +750,17 @@ CREATE TABLE `quantities` (
   `color_name_id` int(11) NOT NULL,
   `size_id` int(11) NOT NULL,
   `quantity` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `quantities`
+-- Dumping data for table `quantities`
 --
 
 INSERT INTO `quantities` (`quantity_id`, `product_id`, `color_name_id`, `size_id`, `quantity`) VALUES
 (1, 70, 114, 15, 7),
 (2, 70, 116, 16, 8),
 (3, 70, 116, 18, 2),
-(19, 75, 119, 17, 2),
+(19, 75, 119, 17, 1),
 (20, 75, 119, 18, 3),
 (21, 75, 119, 19, 2),
 (22, 75, 120, 17, 7),
@@ -777,9 +769,9 @@ INSERT INTO `quantities` (`quantity_id`, `product_id`, `color_name_id`, `size_id
 (25, 75, 121, 15, 2),
 (26, 75, 121, 18, 6),
 (27, 75, 121, 16, 6),
-(28, 76, 122, 16, 4),
-(29, 76, 122, 18, 3),
-(30, 76, 122, 15, 3),
+(28, 76, 122, 16, 0),
+(29, 76, 122, 18, 0),
+(30, 76, 122, 15, 0),
 (43, 76, 123, 15, 3),
 (44, 76, 123, 16, 6),
 (45, 76, 123, 17, 6),
@@ -787,7 +779,7 @@ INSERT INTO `quantities` (`quantity_id`, `product_id`, `color_name_id`, `size_id
 (47, 78, 121, 16, 5),
 (48, 78, 121, 17, 3),
 (49, 78, 121, 18, 8),
-(50, 78, 125, 15, 6),
+(50, 78, 125, 15, 4),
 (51, 78, 125, 16, 5),
 (52, 78, 125, 18, 3),
 (53, 79, 126, 14, 2),
@@ -890,7 +882,7 @@ INSERT INTO `quantities` (`quantity_id`, `product_id`, `color_name_id`, `size_id
 (187, 116, 182, 17, 8),
 (188, 116, 182, 18, 8),
 (189, 117, 183, 16, 5),
-(190, 117, 183, 18, 5),
+(190, 117, 183, 18, 4),
 (191, 117, 183, 17, 5),
 (195, 119, 187, 15, 6),
 (196, 119, 187, 17, 7),
@@ -899,16 +891,16 @@ INSERT INTO `quantities` (`quantity_id`, `product_id`, `color_name_id`, `size_id
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `size`
+-- Table structure for table `size`
 --
 
 CREATE TABLE `size` (
   `size_id` int(11) NOT NULL,
   `size_name` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `size`
+-- Dumping data for table `size`
 --
 
 INSERT INTO `size` (`size_id`, `size_name`) VALUES
@@ -929,16 +921,16 @@ INSERT INTO `size` (`size_id`, `size_name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `status`
+-- Table structure for table `status`
 --
 
 CREATE TABLE `status` (
   `status_id` int(11) NOT NULL,
   `status` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `status`
+-- Dumping data for table `status`
 --
 
 INSERT INTO `status` (`status_id`, `status`) VALUES
@@ -952,7 +944,7 @@ INSERT INTO `status` (`status_id`, `status`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
@@ -964,49 +956,48 @@ CREATE TABLE `user` (
   `address` varchar(250) NOT NULL,
   `phone` varchar(50) NOT NULL,
   `role` tinyint(1) NOT NULL,
-  `image_user` varchar(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `image_user` varchar(11) NOT NULL,
+  `isActive` tinyint(1) NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `user`
+-- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `full_name`, `username`, `password`, `email`, `address`, `phone`, `role`, `image_user`) VALUES
-(1, 'Nguyễn Tiến Đạt', 'datntph29447', 'dat123', 'datntph24947@fpt.edu.vn', 'Hồng hà - Đan Phượng - Hà Nội', '0964863742', 1, ''),
-(2, 'cuong', 'mcuong2003', '123', 'cuongb4102003@gmail.com', 'Đ. Hoàng Mai', '0966981411', 0, ''),
-(3, 'nguyễn khánh văn', 'khanhvan12', 'hihi', 'vannkph22621@fpt.edu.vn', 'phuc lam my duc', '0971072436', 0, '');
+INSERT INTO `user` (`id`, `full_name`, `username`, `password`, `email`, `address`, `phone`, `role`, `image_user`, `isActive`) VALUES
+(5, 'admin', 'admin', '123456', 'admin@gmail.com', 'hà nội', '0987772223', 1, '', 1);
 
 --
--- Chỉ mục cho các bảng đã đổ
+-- Indexes for dumped tables
 --
 
 --
--- Chỉ mục cho bảng `banner`
+-- Indexes for table `banner`
 --
 ALTER TABLE `banner`
   ADD PRIMARY KEY (`banner_id`);
 
 --
--- Chỉ mục cho bảng `categories`
+-- Indexes for table `categories`
 --
 ALTER TABLE `categories`
   ADD PRIMARY KEY (`id_category`);
 
 --
--- Chỉ mục cho bảng `color_name`
+-- Indexes for table `color_name`
 --
 ALTER TABLE `color_name`
   ADD PRIMARY KEY (`color_name_id`),
   ADD KEY `color_type_id` (`color_type_id`);
 
 --
--- Chỉ mục cho bảng `color_type`
+-- Indexes for table `color_type`
 --
 ALTER TABLE `color_type`
   ADD PRIMARY KEY (`color_type_id`);
 
 --
--- Chỉ mục cho bảng `comment`
+-- Indexes for table `comment`
 --
 ALTER TABLE `comment`
   ADD PRIMARY KEY (`comment_id`),
@@ -1014,7 +1005,7 @@ ALTER TABLE `comment`
   ADD KEY `id` (`id`);
 
 --
--- Chỉ mục cho bảng `images`
+-- Indexes for table `images`
 --
 ALTER TABLE `images`
   ADD PRIMARY KEY (`image_id`),
@@ -1022,7 +1013,7 @@ ALTER TABLE `images`
   ADD KEY `product_id` (`product_id`);
 
 --
--- Chỉ mục cho bảng `orders`
+-- Indexes for table `orders`
 --
 ALTER TABLE `orders`
   ADD PRIMARY KEY (`order_id`),
@@ -1030,7 +1021,7 @@ ALTER TABLE `orders`
   ADD KEY `status_id` (`status_id`);
 
 --
--- Chỉ mục cho bảng `order_product`
+-- Indexes for table `order_product`
 --
 ALTER TABLE `order_product`
   ADD PRIMARY KEY (`order_product_id`),
@@ -1040,14 +1031,14 @@ ALTER TABLE `order_product`
   ADD KEY `order_id` (`order_id`);
 
 --
--- Chỉ mục cho bảng `products`
+-- Indexes for table `products`
 --
 ALTER TABLE `products`
   ADD PRIMARY KEY (`product_id`),
   ADD KEY `id_catogory` (`category_id`);
 
 --
--- Chỉ mục cho bảng `product_color`
+-- Indexes for table `product_color`
 --
 ALTER TABLE `product_color`
   ADD PRIMARY KEY (`product_color_id`),
@@ -1055,7 +1046,7 @@ ALTER TABLE `product_color`
   ADD KEY `color_name_id` (`color_name_id`);
 
 --
--- Chỉ mục cho bảng `product_size`
+-- Indexes for table `product_size`
 --
 ALTER TABLE `product_size`
   ADD PRIMARY KEY (`product_size_id`),
@@ -1063,7 +1054,7 @@ ALTER TABLE `product_size`
   ADD KEY `product_size_ibfk_2` (`size_id`);
 
 --
--- Chỉ mục cho bảng `purchased_orders`
+-- Indexes for table `purchased_orders`
 --
 ALTER TABLE `purchased_orders`
   ADD PRIMARY KEY (`purchased_order_id`),
@@ -1073,7 +1064,7 @@ ALTER TABLE `purchased_orders`
   ADD KEY `color_name_id` (`color_name_id`);
 
 --
--- Chỉ mục cho bảng `quantities`
+-- Indexes for table `quantities`
 --
 ALTER TABLE `quantities`
   ADD PRIMARY KEY (`quantity_id`),
@@ -1082,142 +1073,142 @@ ALTER TABLE `quantities`
   ADD KEY `size_id` (`size_id`);
 
 --
--- Chỉ mục cho bảng `size`
+-- Indexes for table `size`
 --
 ALTER TABLE `size`
   ADD PRIMARY KEY (`size_id`);
 
 --
--- Chỉ mục cho bảng `status`
+-- Indexes for table `status`
 --
 ALTER TABLE `status`
   ADD PRIMARY KEY (`status_id`);
 
 --
--- Chỉ mục cho bảng `user`
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT cho các bảng đã đổ
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT cho bảng `banner`
+-- AUTO_INCREMENT for table `banner`
 --
 ALTER TABLE `banner`
   MODIFY `banner_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT cho bảng `categories`
+-- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
   MODIFY `id_category` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT cho bảng `color_name`
+-- AUTO_INCREMENT for table `color_name`
 --
 ALTER TABLE `color_name`
   MODIFY `color_name_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=188;
 
 --
--- AUTO_INCREMENT cho bảng `color_type`
+-- AUTO_INCREMENT for table `color_type`
 --
 ALTER TABLE `color_type`
   MODIFY `color_type_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
--- AUTO_INCREMENT cho bảng `comment`
+-- AUTO_INCREMENT for table `comment`
 --
 ALTER TABLE `comment`
   MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
--- AUTO_INCREMENT cho bảng `images`
+-- AUTO_INCREMENT for table `images`
 --
 ALTER TABLE `images`
   MODIFY `image_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=446;
 
 --
--- AUTO_INCREMENT cho bảng `orders`
+-- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=124;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=143;
 
 --
--- AUTO_INCREMENT cho bảng `order_product`
+-- AUTO_INCREMENT for table `order_product`
 --
 ALTER TABLE `order_product`
-  MODIFY `order_product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=116;
+  MODIFY `order_product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=130;
 
 --
--- AUTO_INCREMENT cho bảng `products`
+-- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
   MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=122;
 
 --
--- AUTO_INCREMENT cho bảng `product_color`
+-- AUTO_INCREMENT for table `product_color`
 --
 ALTER TABLE `product_color`
   MODIFY `product_color_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=129;
 
 --
--- AUTO_INCREMENT cho bảng `product_size`
+-- AUTO_INCREMENT for table `product_size`
 --
 ALTER TABLE `product_size`
   MODIFY `product_size_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=187;
 
 --
--- AUTO_INCREMENT cho bảng `purchased_orders`
+-- AUTO_INCREMENT for table `purchased_orders`
 --
 ALTER TABLE `purchased_orders`
   MODIFY `purchased_order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT cho bảng `quantities`
+-- AUTO_INCREMENT for table `quantities`
 --
 ALTER TABLE `quantities`
   MODIFY `quantity_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=201;
 
 --
--- AUTO_INCREMENT cho bảng `size`
+-- AUTO_INCREMENT for table `size`
 --
 ALTER TABLE `size`
   MODIFY `size_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
--- AUTO_INCREMENT cho bảng `status`
+-- AUTO_INCREMENT for table `status`
 --
 ALTER TABLE `status`
   MODIFY `status_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT cho bảng `user`
+-- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- Các ràng buộc cho các bảng đã đổ
+-- Constraints for dumped tables
 --
 
 --
--- Các ràng buộc cho bảng `color_name`
+-- Constraints for table `color_name`
 --
 ALTER TABLE `color_name`
   ADD CONSTRAINT `color_name_ibfk_1` FOREIGN KEY (`color_type_id`) REFERENCES `color_type` (`color_type_id`);
 
 --
--- Các ràng buộc cho bảng `orders`
+-- Constraints for table `orders`
 --
 ALTER TABLE `orders`
   ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`customer_id`) REFERENCES `user` (`id`),
   ADD CONSTRAINT `orders_ibfk_2` FOREIGN KEY (`status_id`) REFERENCES `status` (`status_id`);
 
 --
--- Các ràng buộc cho bảng `order_product`
+-- Constraints for table `order_product`
 --
 ALTER TABLE `order_product`
   ADD CONSTRAINT `order_product_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`),
@@ -1226,27 +1217,27 @@ ALTER TABLE `order_product`
   ADD CONSTRAINT `order_product_ibfk_4` FOREIGN KEY (`order_id`) REFERENCES `orders` (`order_id`);
 
 --
--- Các ràng buộc cho bảng `products`
+-- Constraints for table `products`
 --
 ALTER TABLE `products`
   ADD CONSTRAINT `products_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id_category`);
 
 --
--- Các ràng buộc cho bảng `product_color`
+-- Constraints for table `product_color`
 --
 ALTER TABLE `product_color`
   ADD CONSTRAINT `product_color_ibfk_1` FOREIGN KEY (`color_name_id`) REFERENCES `color_name` (`color_name_id`),
   ADD CONSTRAINT `product_color_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`);
 
 --
--- Các ràng buộc cho bảng `product_size`
+-- Constraints for table `product_size`
 --
 ALTER TABLE `product_size`
   ADD CONSTRAINT `product_size_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`),
   ADD CONSTRAINT `product_size_ibfk_2` FOREIGN KEY (`size_id`) REFERENCES `size` (`size_id`);
 
 --
--- Các ràng buộc cho bảng `quantities`
+-- Constraints for table `quantities`
 --
 ALTER TABLE `quantities`
   ADD CONSTRAINT `quantities_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`),
