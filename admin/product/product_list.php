@@ -31,9 +31,7 @@
   </div>
 </div>
 
-<!--   Phần content -->
 
-<!--   Phần content -->
 <!--   Phần content -->
 <div class="main">
   <div class="main-content dashboard">
@@ -43,6 +41,17 @@
     <span class="<?= isset($_COOKIE['notification']) ? "noti-success" : "" ?> ">
       <?= $notification = isset($_COOKIE['notification']) ? $_COOKIE['notification'] : ""; ?>
     </span>
+    <form method="GET" action="index.php" class="d-flex mb-3" role="search">
+      <div class="my-2">
+        <input type="hidden" name="act" value="view_product">
+        <input
+          class="form-control me-2"
+          type="search"
+          placeholder="Tìm kiếm sản phẩm..."
+          name="q"
+          value="<?php echo isset($_GET['q']) ? htmlspecialchars($_GET['q']) : ''; ?>">
+      </div>
+    </form>
     <form action="./index.php" method="post">
       <table id="example" class="table table-bordered table-hover" style="width:100%">
         <thead>
@@ -62,7 +71,7 @@
           </tr>
         </thead>
         <tbody>
-          <?php $product_result = select_all_product_admin(); ?>
+          <?php $product_result = select_all_product_admin(empty($_GET['q']) ? "" : $_GET['q']); ?>
           <?php foreach ($product_result as $value) : ?>
             <!-- <tr class="table-success"> -->
             <tr>
@@ -95,9 +104,6 @@
               </td>
               <td>
                 <a href="./index.php?act=update_product&product_id=<?= $value['product_id']; ?>"><input class="btn btn-success" type="button" name="sua" value="Sửa" /></a>
-              </td>
-              <td>
-                <a onclick="return confirm(' Bạn có chắc chắn muốn xóa sản phẩm này')" href=".<?= $PRODUCT_URL ?>/delete_product.php?product_id=<?= $value['product_id']; ?>"><input class="btn btn-danger" type="button" name="delete" value="Xóa" /></a>
               </td>
             </tr>
           <?php endforeach ?>
